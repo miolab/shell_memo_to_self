@@ -39,31 +39,32 @@ chmod xxx aaaa.aaa
 
 __文字列__ を、ファイルをひらかずにサーチ。
 
-- 基本形
+- 基本形 : `grep 文字列 ファイル名`
+  ```
+  grep some_word aaaa.aaa
+  ```
 
-  `grep some_word aaaa.aaa`
+- 文字列の __一部だけ__ でもOK
+  ```
+  grep som aaaa.aaa
+  ```
 
-- 文字列の一部だけでもOK
-
-  `grep som aaaa.aaa`
-
-- ワイルドカードも使える。（対象ファイルを決め打ちにしない）
-
-  `grep some_word *`
+- 一応ワイルドカードも使える。（対象ファイルを決め打ちにしない）
+  ```
+  grep some_word *
+  ```
 
 
 ### __find__
 
 __ファイル__ を検索して、パスを返す。
 
-- 基本形
+- 基本形 : `find ディレクトリ名 -name ファイル名 -print`
+  ```
+  find dir_hoge -name moge.txt -print
 
-  `find ディレクトリ名 -name ファイル名 -print`
-    ```
-    find dir_hoge -name moge.txt -print
-
-    # dir_hoge/moge.txt
-    ```
+  # dir_hoge/moge.txt
+  ```
 
 - ワイルドカード併用
 

@@ -1,9 +1,6 @@
 # shell_memo_to_self
 
-### Shell / Unix チートシート
-
-  https://github.com/miolab/shell_memo_to_self.git
-
+Shell / Linuxコマンド チートシート
 
 ---
 
@@ -11,8 +8,8 @@
 
 `#!/bin/sh`
 
-↓ みたいにかく。
-```
+↓ みたいに書く。
+```shell
 #!/bin/sh
 date >> date.txt
 ```
@@ -20,7 +17,6 @@ date >> date.txt
 ## シェル実行（e.g.）
 
   `$ ./hoge.sh`
-
 
 # Unixコマンド
 
@@ -39,10 +35,26 @@ chmod xxx aaaa.aaa
 
 __文字列__ を（ファイルをひらかずに）サーチ。
 
-#### よく使うやつ
+#### 使用例
+
+  ```bash
+  asdf list-all elixir | grep 1.10
+
+  1.10.0-rc.0
+  1.10.0-rc.0-otp-21
+  1.10.0-rc.0-otp-22
+  1.10.0
+  1.10.0-otp-21
+  1.10.0-otp-22
+  1.10.1
+    .
+    .
   ```
+
+  ```bash
   grep any_word any_path/* --include "*.ex"
   ```
+
   ディレクトリ`any_path`配下の全ファイルのうち、拡張子が`.ex`であるファイルで、  
   かつ、ファイルの中身に文字列`any_word`を含むファイルをリストにして返す。
 
@@ -97,9 +109,8 @@ __ファイル__ を検索して、__パスを返す__。
     grep hoge moge.txt >> kekka.txt
     ```
 
-    - `>>` にすると文末に追加できる。  
-      （`>` だと上書き）
-
+    - `>` だと __上書き__
+    - `>>` にすると、__文末に追加__ できる
 
 ---
 
@@ -125,3 +136,25 @@ __ファイル__ を検索して、__パスを返す__。
   ```
   - `https/httpアクセス`するコマンドであるともとれる。
 
+### `（コマンド文末に）&` と `fg`
+
+- `（コマンド文末に）&` ... バックグラウンドで処理する
+- `fg` ... フォアグランド処理に戻す
+
+  例
+
+  ```terminal
+  $ sleep 10 &
+  [1] 26762
+
+  $ ps
+    PID TTY           TIME CMD
+    350 ttys000    0:00.02 -bash
+      .
+      .
+  23625 ttys010    0:00.03 -bash
+  26762 ttys010    0:00.00 sleep 10
+
+  $ fg
+  sleep 10
+  ```

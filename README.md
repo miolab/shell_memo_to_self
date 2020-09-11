@@ -1,4 +1,4 @@
-# shell_memo_to_self
+# Shell and Linux memo
 
 Shell / Linuxコマンド チートシート
 
@@ -76,25 +76,35 @@ __文字列__ を（ファイルをひらかずに）サーチ。
 
 ### find
 
-__ファイル__ を検索して、__パスを返す__。
+- __ファイル__ を検索
 
-- 基本形 : `find ディレクトリ名 -name ファイル名 -print`
+  - 基本形 : `find 検索対象パス -name ファイル名 -print`
+
+    ```
+    find dir_hoge -name moge.txt -print
+
+    # dir_hoge/moge.txt
+    ```
+
+  - ワイルドカード併用
+
+    `find dir_hoge -name '*.txt' -print`
+
+    - `"*.txt"` のようにダブルクォーテーションでもOK
+
+  - ルートを基点にして検索（findは下部ディレクトリもサーチしてくれる）
+
+    `find ./ -name 'hoge.txt' -print`
+
+    - ルートで実行すると全ディレクトリに対して検索をかけ、検索結果がたいへんなことになるため、スコープをしぼる等の工夫は必要。
+
+- __ディレクトリ__ 検索
+
+  `find 検索対象パス -name ディレクトリ名 -type d`
+
   ```
-  find dir_hoge -name moge.txt -print
-
-  # dir_hoge/moge.txt
+  sudo find /usr/local/ -name python -type d
   ```
-
-- ワイルドカード併用
-
-  `find dir_hoge -name '*.txt' -print`
-  - `"*.txt"` のようにダブルクォーテーションでもOK
-
-- ルートを基点にして検索（findは下部ディレクトリもサーチしてくれる）
-
-  `find ./ -name 'hoge.txt' -print`
-  - ルートで実行すると全ディレクトリに対して検索をかけ、検索結果がたいへんなことになるため、スコープをしぼる等の工夫は必要。
-
 
 ---
 

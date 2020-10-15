@@ -1,6 +1,8 @@
 # Shell and Linux memo
 
-Shell / Linux コマンド チートシート
+- Shell / Linux コマンド チートシート
+
+- terminal 設定とかも
 
 ---
 
@@ -178,3 +180,11 @@ grep any_word any_path/* --include "*.ex"
   $ fg
   sleep 10
   ```
+
+### Mac の CPU スペックを確認する
+
+```
+sysctl machdep.cpu.brand_string
+
+machdep.cpu.brand_string: Intel(R) Core(TM) i..-..（型番） CPU @ ...GHz
+```
